@@ -2,9 +2,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <AssemblyName>Cryptopals.Challenges.dll</AssemblyName>   
+    <AssemblyName>Cryptopals.Challenges.dll</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="set1\HexToBase64.cs" /> 
-  </ItemGroup> 
+    <Content Include="set1\HexToBase64.cs" />
+    <Content Include="set1\FixedXOR.cs" />
+    <Content Include="IEncryptionChallenge.cs" />
+  </ItemGroup>
 </Project>

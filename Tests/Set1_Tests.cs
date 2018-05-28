@@ -20,5 +20,21 @@ namespace Cryptopals.Tests
             // assert
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void FixedXOR_Test()
+        {
+            // assign
+            string input = "1c0111001f010100061a024b53535009181c";
+            string key = "686974207468652062756c6c277320657965";
+            string expected = "746865206b696420646f6e277420706c6179";
+
+            // execute
+            FixedXOR challenge = new FixedXOR();
+            string actual = challenge.Encrypt(input, key);
+
+            // assert, ignore case
+            Assert.AreEqual(expected, actual, true);
+        }
     }
 }

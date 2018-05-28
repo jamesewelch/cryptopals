@@ -4,6 +4,11 @@ namespace Cryptopals.Challenges
 {
     public class HexToBase64 : IEncryptionChallenge
     {
+        /// <summary>
+        /// Convert hex to base64
+        /// </summary>
+        /// <param name="clearText">hex string</param>
+        /// <returns></returns>
         public string Encrypt(string clearText)
         {
             var bytes = new byte[clearText.Length / 2];
@@ -14,6 +19,11 @@ namespace Cryptopals.Challenges
 
             string cipherText = System.Convert.ToBase64String(bytes);
             return cipherText;
+        }
+
+        public string Encrypt(string clearText, string key)
+        {
+            throw new NotImplementedException();
         }
     }
 }
