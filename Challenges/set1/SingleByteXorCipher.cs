@@ -20,6 +20,20 @@ namespace Cryptopals.Challenges
         /// <returns></returns>
         public static string Decrypt(string hexStringA, out string key)
         {
+            int score;
+            return Decrypt(hexStringA, out key, out score);
+        }
+
+        /// <summary>
+        /// Decrypt the hexstring using a single-byte XOR cipher
+        /// Figure out the key
+        /// </summary>
+        /// <param name="hexString">The provided hex string</param> 
+        /// <param name="key">The decryption key</param>
+        /// <param name="score">The score</param>
+        /// <returns></returns>
+        public static string Decrypt(string hexStringA, out string key, out int score)
+        {
             // hex decode string a
             var bytesA = new byte[hexStringA.Length / 2];
             for (var i = 0; i < bytesA.Length; i++)
@@ -60,13 +74,15 @@ namespace Cryptopals.Challenges
                 // plain text decrypted!
                 string clearText = Encoding.Default.GetString(bytesResponse);
                 decryptedStrings[x] = clearText;
-                System.Diagnostics.Debug.WriteLine("@" + x + "= " + clearText);
             }
 
-            int bestIndex = FindBestIndex(decryptedStrings);
-            string bestScore = decryptedStrings[bestIndex];
+            int bestIndex;
+            int bestScore;
+            FindBest(decryptedStrings, out bestIndex, out bestScore);
+            string bestText = decryptedStrings[bestIndex];
             key = keys.Substring(bestIndex, 1);
-            return bestScore;
+            score = bestScore;
+            return bestText;
         }
 
         /// <summary>
@@ -75,11 +91,11 @@ namespace Cryptopals.Challenges
         /// <param name="decryptedStrings"></param>
         /// <param name="bestIndex"></param>
         /// <returns></returns>
-        public static int FindBestIndex(string[] decryptedStrings)
+        public static void FindBest(string[] decryptedStrings, out int bestIndex, out int bestScore)
         {
-            int bestScore = -100;
+            bestScore = -100;
+            bestIndex = 0;
             string bestString = null;
-            int bestIndex = 0;
 
             for (int i = 0; i < decryptedStrings.Length; i++)
             {
@@ -92,9 +108,7 @@ namespace Cryptopals.Challenges
                     bestString = decryptedString;
                     bestIndex = i;
                 }
-            }
- 
-            return bestIndex;
+            } 
         }
 
         /// <summary>
@@ -105,7 +119,7 @@ namespace Cryptopals.Challenges
         public static int LewandScore(string input)
         {
             char[] letterRanks = "etaoinshrdlcumwfgypbvkjxqz".ToCharArray();
-            int score = 0; 
+            int score = 0;
             input = input.Replace(" ", "").ToLower();
 
             foreach (char letter in input.ToCharArray())
@@ -128,7 +142,7 @@ namespace Cryptopals.Challenges
                 }
             }
 
-            score = score / input.Length; 
+            score = score / input.Length;
             return score;
         }
     }

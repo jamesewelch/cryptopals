@@ -13,5 +13,8 @@
   <ItemGroup>
     <ProjectReference Include="..\Challenges\Cryptopals.Challenges.csproj" />
     <Content Include="Set1_Tests.cs" />
+    <Content Include="data\set1_challenge4.txt" >
+     <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+     </Content> 
   </ItemGroup>
 </Project>

@@ -8,5 +8,6 @@
     <Content Include="set1\HexToBase64.cs" />
     <Content Include="set1\SingleByteXorCipher.cs" />
     <Content Include="set1\FixedXor.cs" />
+    <Content Include="set1\DetectSingleCharacterXor.cs" />
   </ItemGroup>
 </Project>

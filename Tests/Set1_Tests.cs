@@ -1,5 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Cryptopals.Challenges;
+using System.IO; 
 
 namespace Cryptopals.Tests
 {
@@ -55,5 +56,27 @@ namespace Cryptopals.Tests
             System.Diagnostics.Debug.WriteLine(actual);
             System.Diagnostics.Debug.WriteLine("------------------");
         }
+
+        [TestMethod]
+        public void DetectSingleCharacterXor_Test()
+        {
+            // assign 
+            string input = Path.GetFullPath( "data/set1_challenge4.txt");
+            string key = null;
+            string expected = "Now that the party is jumping\n";
+
+            // execute 
+            string actual = DetectSingleCharacterXor.Decrypt(input, out key);
+
+            // assert, ignore case
+            Assert.IsNotNull(actual);
+            Assert.IsNotNull(key);
+            Assert.AreEqual(expected, actual, true);
+
+            System.Diagnostics.Debug.WriteLine("------------------");
+            System.Diagnostics.Debug.WriteLine(actual);
+            System.Diagnostics.Debug.WriteLine("------------------");
+        }
+
     }
 }
