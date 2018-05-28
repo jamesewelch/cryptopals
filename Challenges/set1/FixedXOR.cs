@@ -42,7 +42,7 @@ namespace Cryptopals.Challenges
             {
                 // convert char to int
                 int int1 = (int)bytesA[i];
-                int int2 = (int)bytesB[i % bytesB.Length];
+                int int2 = (int)bytesB[i % bytesB.Length]; // this part makes it UNfixed! repeatable
 
                 // do XOR
                 int int3 = int1 ^ int2;

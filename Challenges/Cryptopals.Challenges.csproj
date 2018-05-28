@@ -9,5 +9,6 @@
     <Content Include="set1\SingleByteXorCipher.cs" />
     <Content Include="set1\FixedXor.cs" />
     <Content Include="set1\DetectSingleCharacterXor.cs" />
+    <Content Include="set1\RepeatingKeyXor.cs" />
   </ItemGroup>
 </Project>
