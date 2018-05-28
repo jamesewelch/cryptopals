@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>Cryptopals.Challenges.dll</AssemblyName>   
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="set1\HexToBase64.cs" /> 
+  </ItemGroup> 
+</Project>
